@@ -50,11 +50,10 @@ namespace ParcialNumero2
                     tasaMensual = (decimal)random.Next(1, 51) / 10;
                     rendimientoMensual = aporteMensual * (tasaMensual / 100);
 
-                    if (tasaMensual < 3.5M)
+                    if (tasaMensual < 1.5M)
                     {
                         bonoMensual = aporteMensual * (decimal)BONO;
                         bonoTotal += bonoMensual;
-                        bonoMensual = 0;
                     }
 
                     aporteTotal += aporteMensual;
