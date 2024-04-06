@@ -75,8 +75,11 @@ namespace ParcialNumero2
                         break;
                     }
                 }
-                Console.WriteLine($"Jugadores han fallado, desean volver a intentarlo ? (s/n)");
-                respuesta = Console.ReadLine().ToLower();
+                if (numeroRamdon != numeroIngresado)
+                {
+                    Console.WriteLine($"Jugadores han fallado, desean volver a intentarlo ? (s/n)");
+                    respuesta = Console.ReadLine().ToLower();
+                }
             }
             while (!coincidencia && respuesta == "s");                                                                        
 
