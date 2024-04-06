@@ -55,8 +55,13 @@ namespace ParcialNumero2
 
                     if (numeroIngresado < numeroRamdon)
                     {
+                        Console.WriteLine("MENOR");
+                    }
+                    if (numeroIngresado > numeroRamdon)
+                    {
                         Console.WriteLine("MAYOR");
                     }
+
                 }
                     
             }
