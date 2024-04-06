@@ -107,26 +107,26 @@ namespace ParcialNumero2
                     acepta = Console.ReadLine();
                     if (acepta == "s")
                     {
-                        Console.Write("Cuanto necesita prestar ?");
+                        Console.Write("Cuanto necesita prestar ?\n");
                         prestamoSocio1 = Convert.ToInt32(Console.ReadLine());
                         if (prestamoSocio1 > aporteTotal1)
                         {
-                            Console.Write("Su prestamo no fue aceptado");
+                            Console.Write("Su prestamo no fue aceptado\n ");
                         }
                         else
                         {
 
                         }
                     }
-                    Console.Write("SOCIO #2  Desea hacer un prestamo ? (s/n)");
+                    Console.WriteLine("SOCIO #2  Desea hacer un prestamo ? (s/n)");
                     acepta = Console.ReadLine();
                     if (acepta == "s")
                     {
-                        Console.Write("Cuanto necesita prestar ?");
+                        Console.Write("Cuanto necesita prestar ?\n");
                         prestamoSocio2 = Convert.ToInt32(Console.ReadLine());
                         if (prestamoSocio2 > aporteTotal2)
                         {
-                            Console.Write("Su prestamo no fue aceptado");
+                            Console.Write("Su prestamo no fue aceptado\n ");
                         }
                         else
                         {
