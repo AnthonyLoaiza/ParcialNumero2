@@ -33,22 +33,45 @@ namespace ParcialNumero2
 
             bool volver = true;
             const double BONO = 0.4; //Snake Case:Notación para constantes.
+            const decimal MULTA = 20000; //Snake Case:Notación para constantes.
+            decimal prestamoSocio1 = 0, prestamoSocio2 = 0;
+            int multasSocio1 = 0, multasSocio2 = 0;
 
             while (volver)
             {
-                decimal aporteMensual, rendimientoMensual, aporteTotal = 0, rendimientoTotal = 0, bonoMensual = 0, bonoTotal = 0, aporteTotalNeto, tasaMensual;
+                decimal aporteMensual1, aporteMensual2, rendimientoMensual1, rendimientoMensual2, aporteTotal1 = 0, aporteTotal2 = 0, rendimientoTotal1 = 0, rendimientoTotal2 = 0, bonoMensual1 = 0, bonoMensual2 = 0, bonoTotal1 = 0, bonoTotal2 = 0, aporteTotalNeto1, aporteTotalNeto2, tasaMensual;
                 string continuar;
+
 
                 //Clase random
                 Random random = new Random(); //Esta es la forma de instanciar una clase en objeto
 
                 for (int mes = 1; mes <= 12; mes++)
                 {
-                    Console.Write($"Ingrese la cantidad que desea ahorrar en el mes {mes}: ");
-                    aporteMensual = Convert.ToDecimal(Console.ReadLine());
+                    Console.Write($"SOCIO #1 Ingrese la cantidad que desea ahorrar en el mes {mes}: ");
+                    aporteMensual1 = Convert.ToDecimal(Console.ReadLine());
+
+                    if (aporteMensual1 == 0)
+                    {
+                        Console.WriteLine("El socio 1 no aporto este mes. Se cobrara una multa de $20,000.");
+                        multasSocio1++;
+                        aporteMensual1 -= MULTA;
+                    }
+
+                    Console.Write($"SOCIO #2 Ingrese la cantidad que desea ahorrar en el mes {mes}: ");
+                    aporteMensual2 = Convert.ToDecimal(Console.ReadLine());
+
+                    if (aporteMensual2 == 0)
+                    {
+                        Console.WriteLine("El socio 2 no aporto este mes. Se cobrara una multa de $20,000.");
+                        multasSocio1++;
+                        aporteMensual1 -= MULTA;
+                    }
 
                     tasaMensual = (decimal)random.Next(1, 51) / 10;
-                    rendimientoMensual = aporteMensual * (tasaMensual / 100);
+                    rendimientoMensual1 = aporteMensual1 * (tasaMensual / 100);
+                    rendimientoMensual2 = aporteMensual2 * (tasaMensual / 100);
+
 
                     if (tasaMensual < 1.5M)
                     {
