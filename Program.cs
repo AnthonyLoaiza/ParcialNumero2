@@ -34,6 +34,8 @@ namespace ParcialNumero2
             var ramdon = new Random();
             var numeroRamdon = 0;
             var numeroIngresado = 0;
+            var coincidencia = true;
+            var respuesta = "s";
 
             Console.WriteLine($"Vamos a jugar un juego.\n" +
                 $"Voy a generar un numero aleatorio que ustedes tendran que adivinar\n" +
@@ -41,12 +43,11 @@ namespace ParcialNumero2
                 $"- Si juegan 3 personas el numero se generara entre 0 y 100\n" +
                 $"- Si juegan 4 personas el numero se generara entre 0 y 200\n\n");
             Console.WriteLine("Cuantas personas van a participar? (Minimo 2 Maximo 4)");
-            participantes = Convert.ToInt32(Console.ReadLine());  
-
-            if (participantes == 2) 
+            participantes = Convert.ToInt32(Console.ReadLine());
+            
+            numeroRamdon = ramdon.Next(-1, 51);
+            do
             {
-                numeroRamdon = ramdon.Next(-1, 51);
-
                 for (int i = 1; i <= participantes; i++)
                 {
                     Console.WriteLine($"Turno del jugador {i}:");
@@ -61,18 +62,17 @@ namespace ParcialNumero2
                     {
                         Console.WriteLine("MAYOR");
                     }
-
+                    if (numeroIngresado == numeroRamdon)
+                    {
+                        Console.WriteLine($"Felicitaciones Jugador {i} Adivinaste el numero\n Gracias por jugar");
+                        coincidencia = true;
+                        break;
+                    }
                 }
-                    
+                Console.WriteLine($"Jugadores han fallado, desean volver a intentarlo ? (s/n)");
+                respuesta = Console.ReadLine().ToLower();
             }
-            if (participantes == 3)
-            {
-                ramdon.Next(-1, 101);
-            }
-            if (participantes == 4)
-            {
-                ramdon.Next(-1, 201);
-            }
+            while (!coincidencia && respuesta == "s");                                                                        
 
         }
     }
