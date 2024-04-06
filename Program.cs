@@ -53,7 +53,7 @@ namespace ParcialNumero2
 
                     if (aporteMensual1 == 0)
                     {
-                        Console.WriteLine("El socio 1 no aporto este mes. Se cobrara una multa de $20,000.");
+                        Console.WriteLine("El socio 1 no aporto este mes. Se cobrara una multa de $20,000");
                         multasSocio1++;
                         aporteMensual1 -= MULTA;
                     }
@@ -63,7 +63,7 @@ namespace ParcialNumero2
 
                     if (aporteMensual2 == 0)
                     {
-                        Console.WriteLine("El socio 2 no aporto este mes. Se cobrara una multa de $20,000.");
+                        Console.WriteLine("El socio 2 no aporto este mes. Se cobrara una multa de $20,000");
                         multasSocio1++;
                         aporteMensual1 -= MULTA;
                     }
@@ -75,29 +75,50 @@ namespace ParcialNumero2
 
                     if (tasaMensual < 1.5M)
                     {
-                        bonoMensual = aporteMensual * (decimal)BONO;
-                        bonoTotal += bonoMensual;
+                        bonoMensual1 = aporteMensual1 * (decimal)BONO;
+                        bonoTotal1 += bonoMensual1;
+
+                        bonoMensual2 = aporteMensual2 * (decimal)BONO;
+                        bonoTotal2 += bonoMensual2;
                     }
 
-                    aporteTotal += aporteMensual;
-                    rendimientoTotal += rendimientoMensual;
+                    aporteTotal1 += aporteMensual1;
+                    rendimientoTotal1 += rendimientoMensual1;
+                    aporteTotal2 += aporteMensual2;
+                    rendimientoTotal2 += rendimientoMensual2;
 
-                    Console.Write($"MES {mes}\n" +
-                                  $"Aportes: {aporteMensual:C}\n" +
+                    Console.Write($"MES {mes}\n SOCIO #1" +
+                                  $"Aportes: {aporteMensual1:C}\n" +
                                   $"Tasa: {tasaMensual}%\n" +
-                                  $"Rendimientos: {rendimientoMensual:C}\n" +
-                                  $"Bono: {bonoMensual:C}\n" +
+                                  $"Rendimientos: {rendimientoMensual1:C}\n" +
+                                  $"Bono: {bonoMensual1:C}\n" +
+                                  $"---------------------------------------\n" +
+                                  $" \n");
+                    Console.Write($"MES {mes}\n SOCIO #2" +
+                                  $"Aportes: {aporteMensual2:C}\n" +
+                                  $"Tasa: {tasaMensual}%\n" +
+                                  $"Rendimientos: {rendimientoMensual2:C}\n" +
+                                  $"Bono: {bonoMensual2:C}\n" +
                                   $"---------------------------------------\n" +
                                   $" \n");
                 }
 
-                aporteTotalNeto = rendimientoTotal + aporteTotal + bonoTotal;
+                aporteTotalNeto1 = rendimientoTotal1 + aporteTotal1 + bonoTotal1;
+                aporteTotalNeto2 = rendimientoTotal2 + aporteTotal2 + bonoTotal2;
 
-                Console.Write($"Aportes totales: {aporteTotal:C}\n" +
-                              $"Rendimientos totales: {rendimientoTotal:C}\n" +
-                              $"Bonos totales: {bonoTotal:C}\n" +
+                Console.Write($"SOCIO #1\n" +
+                              $"Aportes totales: {aporteTotal1:C}\n" +
+                              $"Rendimientos totales: {rendimientoTotal1:C}\n" +
+                              $"Bonos totales: {bonoTotal1:C}\n" +
                               "--------------------------------\n" +
-                              $"TOTAL NETO: {aporteTotalNeto:C}\n" +
+                              $"TOTAL NETO: {aporteTotalNeto1:C}\n" +
+                              $" \n");
+                Console.Write($"SOCIO #2\n" +
+                              $"Aportes totales: {aporteTotal2:C}\n" +
+                              $"Rendimientos totales: {rendimientoTotal2:C}\n" +
+                              $"Bonos totales: {bonoTotal2:C}\n" +
+                              "--------------------------------\n" +
+                              $"TOTAL NETO: {aporteTotalNeto2:C}\n" +
                               $" \n");
 
 
