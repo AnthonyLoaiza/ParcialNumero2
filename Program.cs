@@ -36,6 +36,7 @@ namespace ParcialNumero2
             const decimal MULTA = 20000; //Snake Case:Notación para constantes.
             decimal prestamoSocio1 = 0, prestamoSocio2 = 0;
             int multasSocio1 = 0, multasSocio2 = 0;
+            string acepta;
 
             while (volver)
             {
@@ -87,33 +88,63 @@ namespace ParcialNumero2
                     aporteTotal2 += aporteMensual2;
                     rendimientoTotal2 += rendimientoMensual2;
 
-                    Console.Write($"MES {mes}\n SOCIO #1" +
+                    Console.Write($"MES {mes}\n SOCIO #1 \n" +
                                   $"Aportes: {aporteMensual1:C}\n" +
                                   $"Tasa: {tasaMensual}%\n" +
                                   $"Rendimientos: {rendimientoMensual1:C}\n" +
                                   $"Bono: {bonoMensual1:C}\n" +
                                   $"---------------------------------------\n" +
                                   $" \n");
-                    Console.Write($"MES {mes}\n SOCIO #2" +
+                    Console.Write($"MES {mes}\n SOCIO #2 \n" +
                                   $"Aportes: {aporteMensual2:C}\n" +
                                   $"Tasa: {tasaMensual}%\n" +
                                   $"Rendimientos: {rendimientoMensual2:C}\n" +
                                   $"Bono: {bonoMensual2:C}\n" +
                                   $"---------------------------------------\n" +
                                   $" \n");
+
+                    Console.Write("SOCIO #1  Desea hacer un prestamo ? (s/n)");
+                    acepta = Console.ReadLine();
+                    if (acepta == "s")
+                    {
+                        Console.Write("Cuanto necesita prestar ?");
+                        prestamoSocio1 = Convert.ToInt32(Console.ReadLine());
+                        if (prestamoSocio1 > aporteTotal1)
+                        {
+                            Console.Write("Su prestamo no fue aceptado");
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    Console.Write("SOCIO #2  Desea hacer un prestamo ? (s/n)");
+                    acepta = Console.ReadLine();
+                    if (acepta == "s")
+                    {
+                        Console.Write("Cuanto necesita prestar ?");
+                        prestamoSocio2 = Convert.ToInt32(Console.ReadLine());
+                        if (prestamoSocio2 > aporteTotal2)
+                        {
+                            Console.Write("Su prestamo no fue aceptado");
+                        }
+                        else
+                        {
+                        }
+                    }
                 }
 
                 aporteTotalNeto1 = rendimientoTotal1 + aporteTotal1 + bonoTotal1;
                 aporteTotalNeto2 = rendimientoTotal2 + aporteTotal2 + bonoTotal2;
 
-                Console.Write($"SOCIO #1\n" +
+                Console.Write($"SOCIO #1\n " + 
                               $"Aportes totales: {aporteTotal1:C}\n" +
                               $"Rendimientos totales: {rendimientoTotal1:C}\n" +
                               $"Bonos totales: {bonoTotal1:C}\n" +
                               "--------------------------------\n" +
                               $"TOTAL NETO: {aporteTotalNeto1:C}\n" +
                               $" \n");
-                Console.Write($"SOCIO #2\n" +
+                Console.Write($"SOCIO #2\n " + 
                               $"Aportes totales: {aporteTotal2:C}\n" +
                               $"Rendimientos totales: {rendimientoTotal2:C}\n" +
                               $"Bonos totales: {bonoTotal2:C}\n" +
