@@ -34,8 +34,8 @@ namespace ParcialNumero2
             var ramdon = new Random();
             var numeroRamdon = 0;
             var numeroIngresado = 0;
-            var coincidencia = true;
-            var respuesta = "s";
+            var coincidencia = false;
+            var respuesta = "n";
 
             Console.WriteLine($"Vamos a jugar un juego.\n" +
                 $"Voy a generar un numero aleatorio que ustedes tendran que adivinar\n" +
@@ -44,8 +44,14 @@ namespace ParcialNumero2
                 $"- Si juegan 4 personas el numero se generara entre 0 y 200\n\n");
             Console.WriteLine("Cuantas personas van a participar? (Minimo 2 Maximo 4)");
             participantes = Convert.ToInt32(Console.ReadLine());
-            
-            numeroRamdon = ramdon.Next(-1, 51);
+
+            if (participantes == 2)
+            {numeroRamdon = ramdon.Next(-1, 51);}
+            if (participantes == 3)
+            {numeroRamdon = ramdon.Next(-1, 101);}
+            if (participantes == 4)
+            {numeroRamdon = ramdon.Next(-1, 201);}
+
             do
             {
                 for (int i = 1; i <= participantes; i++)
