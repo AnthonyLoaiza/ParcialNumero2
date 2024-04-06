@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.ConstrainedExecution;
 
 namespace ParcialNumero2
@@ -7,81 +8,28 @@ namespace ParcialNumero2
     {
         static void Main(string[] args)
         {
-            //Peso: 50 %
-            //Juego:
-            //Desarrollar el juego “Adivina el número” en un programa de C#. El juego es muy sencillo, consiste en
-            //adivinar un número ℕ aleatorio que el sistema escoge de un determinado rango y lo guarda en
-            //memoria sin ser revelado.
+            //            Natillera, PARTE 2!
+            //Como ustedes recuerdan, resolvimos el Ejercicio #18 del Taller de Algoritmos, que se trata de una
+            //Natillera Navideña.A este ejercicio, le van a añadir una solución a lo siguiente:
+            //Ya tenemos nuestra natillera navideña diseñada para calcular los aportes y bonos durante un año de
+            //1 socio y liquidación de dicha natillera al final del año. Ahora quiero modificar el código para que me
+            //haga lo siguiente:
 
-            // El juego debe tener la funcionalidad de escoger el número de participantes que jugarán: mínimo 2 y
-            //máximo 4 integrantes.Dependiendo de la cantidad de jugadores, el número ℕ aleatorio se generará
-            //en los siguientes rangos:
-            //            -Si participan 2 jugadores, el número ℕ aleatorio se generará entre 0 y 50
-            //            - Si participan 3 jugadores, el número ℕ aleatorio se generará entre 0 y 100
-            //            - Si participan 4 jugadores, el número ℕ aleatorio se generará entre 0 y 200
-            //Cada jugador comenzará su turno intentando adivinar ese número ℕ aleatorio.El programa deberá
-            //mostrarle al jugador la siguiente información:
-            //-Si el número ingresado es mayor al número aleatorio, entonces mostrar por pantalla la
-            //palabra “MENOR” y darle la oportunidad al siguiente jugador.
-            //- Si el número ingresado es menor al número aleatorio, entonces mostrar por pantalla la
-            //palabra “MAYOR” y darle la oportunidad al siguiente jugador.
-            //- Si el número ingresado coincide con el número aleatorio, entonces mostrar por pantalla la
-            //palabra “¡HAS GANADO!”. Aquí ya finaliza el juego.
-            //El programa deberá estar en capacidad de pedir a los jugadores si desean un nuevo “tirito” para
-            //volver a jugar y borrar consola, de lo contrario, finalizar el programa.
-
-            var participantes = 0;
-            var ramdon = new Random();
-            var numeroRamdon = 0;
-            var numeroIngresado = 0;
-            var coincidencia = false;
-            var respuesta = "n";
-
-            Console.WriteLine($"Vamos a jugar un juego.\n" +
-                $"Voy a generar un numero aleatorio que ustedes tendran que adivinar\n" +
-                $"- Si juegan 2 personas el numero se generara entre 0 y 50\n" +
-                $"- Si juegan 3 personas el numero se generara entre 0 y 100\n" +
-                $"- Si juegan 4 personas el numero se generara entre 0 y 200\n\n");
-            Console.WriteLine("Cuantas personas van a participar? (Minimo 2 Maximo 4)");
-            participantes = Convert.ToInt32(Console.ReadLine());
-
-            if (participantes == 2)
-            {numeroRamdon = ramdon.Next(-1, 51);}
-            if (participantes == 3)
-            {numeroRamdon = ramdon.Next(-1, 101);}
-            if (participantes == 4)
-            {numeroRamdon = ramdon.Next(-1, 201);}
-
-            do
-            {
-                for (int i = 1; i <= participantes; i++)
-                {
-                    Console.WriteLine($"Turno del jugador {i}:");
-                    Console.Write("Ingrese el numero: ");
-                    numeroIngresado = Convert.ToInt32(Console.ReadLine());
-
-                    if (numeroIngresado < numeroRamdon)
-                    {
-                        Console.WriteLine("MENOR");
-                    }
-                    if (numeroIngresado > numeroRamdon)
-                    {
-                        Console.WriteLine("MAYOR");
-                    }
-                    if (numeroIngresado == numeroRamdon)
-                    {
-                        Console.WriteLine($"Felicitaciones Jugador {i} Adivinaste el numero\n Gracias por jugar");
-                        coincidencia = true;
-                        break;
-                    }
-                }
-                if (numeroRamdon != numeroIngresado)
-                {
-                    Console.WriteLine($"Jugadores han fallado, desean volver a intentarlo ? (s/n)");
-                    respuesta = Console.ReadLine().ToLower();
-                }
-            }
-            while (!coincidencia && respuesta == "s");                                                                        
+            //-La posibilidad de ingresar 2 socios y calcular el mes de ambos(o sea, mostrar el ahorro del
+            //mes, si ganó bono, cuánto fue su rendimiento, etc.) tal como se hace con 1 solo, pero esta
+            //vez que sean 2.
+            //- Si el socio no aportó/ ahorró nada($0), entonces cobrar una multa de $20.000 en ese mes.
+            //- Si el socio quiere hacer un préstamo en cualquiera de los meses, solo se le aprueba siempre
+            //y cuando el valor del préstamo no supere lo ahorrado hasta ese momento. Si supera el valor
+            //aportado, mostrar un mensaje que informe a ese socio que no se aprobó la solicitud de
+            //préstamo.
+            //- Al liquidar la natillera a final de año, hacer la deducción del préstamo y calcular los intereses
+            //generados contados a partir del mes que hizo el préstamo.Por ejemplo, si el préstamo lo
+            //solicitó en Abril, entonces calcular la tasa desde Mayo hasta Diciembre.La tasa mensual para
+            //cobrar será del 2.5 % sobre el préstamo.
+            //-Adicional a lo que el algoritmo ya está mostrando en el momento de liquidar la natillera de
+            //los dos socios, también la aplicación deberá mostrar valor del préstamo(si la hicieron),
+            //cuántas multas pagó en el año y el valor neto a liquidarle a ambos socios.
 
         }
     }
