@@ -31,6 +31,9 @@ namespace ParcialNumero2
             //volver a jugar y borrar consola, de lo contrario, finalizar el programa.
 
             var participantes = 0;
+            var ramdon = new Random();
+            var numeroRamdon = 0;
+            var numeroIngresado = 0;
 
             Console.WriteLine($"Vamos a jugar un juego.\n" +
                 $"Voy a generar un numero aleatorio que ustedes tendran que adivinar\n" +
@@ -40,10 +43,31 @@ namespace ParcialNumero2
             Console.WriteLine("Cuantas personas van a participar? (Minimo 2 Maximo 4)");
             participantes = Convert.ToInt32(Console.ReadLine());  
 
+            if (participantes == 2) 
+            {
+                numeroRamdon = ramdon.Next(-1, 51);
 
+                for (int i = 1; i <= participantes; i++)
+                {
+                    Console.WriteLine($"Turno del jugador {i}:");
+                    Console.Write("Ingrese el numero: ");
+                    numeroIngresado = Convert.ToInt32(Console.ReadLine());
 
-            var ramdon = new Random();
-            
+                    if (numeroIngresado < numeroRamdon)
+                    {
+                        Console.WriteLine("MAYOR");
+                    }
+                }
+                    
+            }
+            if (participantes == 3)
+            {
+                ramdon.Next(-1, 101);
+            }
+            if (participantes == 4)
+            {
+                ramdon.Next(-1, 201);
+            }
 
         }
     }
