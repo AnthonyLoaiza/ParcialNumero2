@@ -64,8 +64,8 @@ namespace ParcialNumero2
                     if (aporteMensual2 == 0)
                     {
                         Console.WriteLine("El socio 2 no aporto este mes. Se cobrara una multa de $20,000");
-                        multasSocio1++;
-                        aporteMensual1 -= MULTA;
+                        multasSocio2++;
+                        aporteMensual2 -= MULTA;
                     }
 
                     tasaMensual = (decimal)random.Next(1, 51) / 10;
